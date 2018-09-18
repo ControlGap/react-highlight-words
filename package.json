@@ -1,6 +1,6 @@
 {
   "name": "react-highlight-words",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "description": "React component to highlight words within a larger body of text",
   "main": "dist/main.js",
   "scripts": {
@@ -12,7 +12,6 @@
     "clean:dist": "rimraf dist",
     "deploy": "gh-pages -d build",
     "lint": "standard",
-    "prebuild": "npm run lint",
     "postpublish": "npm run deploy",
     "prepublish": "npm run build",
     "start": "webpack-dev-server --hot --inline --config webpack.config.dev.js",
@@ -83,8 +82,8 @@
     "lodash": "^4.17.10",
     "mocha": "^2.3.4",
     "phantomjs2": "^2.0.2",
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "1.2.6",
@@ -97,7 +96,6 @@
     "worker-loader": "^0.7.0"
   },
   "dependencies": {
-    "highlight-words-core": "^1.2.0",
     "memoize-one": "^4.0.0",
     "prop-types": "^15.5.8"
   },

@@ -1,5 +1,5 @@
 /* @flow */
-import { findAll } from 'highlight-words-core'
+import { findAll } from './helpers'
 import PropTypes from 'prop-types'
 import React from 'react'
 import memoizeOne from 'memoize-one'
@@ -24,6 +24,7 @@ Highlighter.propTypes = {
   sanitize: PropTypes.func,
   searchWords: PropTypes.arrayOf(
     PropTypes.oneOfType([
+      PropTypes.object,
       PropTypes.string,
       PropTypes.instanceOf(RegExp)
     ])
@@ -62,6 +63,8 @@ export default function Highlighter ({
     searchWords,
     textToHighlight
   })
+
+
   const HighlightTag = highlightTag
   let highlightCount = -1
   let highlightClassNames = ''
@@ -86,11 +89,12 @@ export default function Highlighter ({
 
           let highlightClass
           if (typeof highlightClassName === 'object') {
+
             if (!caseSensitive) {
-              highlightClassName = memoizedLowercaseProps(highlightClassName)
-              highlightClass = highlightClassName[text.toLowerCase()]
+             // highlightClassName = memoizedLowercaseProps(highlightClassName)
+              highlightClass = highlightClassName[chunk.matchType]
             } else {
-              highlightClass = highlightClassName[text]
+              highlightClass = highlightClassName[chunk.matchType]
             }
           } else {
             highlightClass = highlightClassName
